@@ -197,9 +197,6 @@
                 150:"壹佰伍拾"
             }
 
-            for (let i = 1;i<=150;i++){
-                console.log(number_table[i])
-            }
             var draw = function(){
                 if(seleted < 150){
                     let temp
@@ -210,6 +207,13 @@
                     $('h1').html(number_table[temp])
                     seleted = seleted + 1
                     $('tbody').html($('tbody').html()+"<tr><td>"+number_table[seleted]+"：</td><td>"+number_table[temp]+"</td></tr>")
+                    $('tr').click(function(){
+                        if($(this).css("text-decoration") == "line-through solid rgb(0, 0, 0)"){
+                            $(this).css({"text-decoration":"none"})
+                        }else{
+                            $(this).css({"text-decoration":"line-through"})
+                        }
+                    })
                 }else{
                     $('body').prepend('<p>沒東西可以抽啦！！</p>')
                 }
